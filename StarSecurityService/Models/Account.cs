@@ -29,15 +29,15 @@ public partial class Account
     public string? Phone { get; set; }
 
     [Column("firstName")]
-    [StringLength(1)]
+    [StringLength(255)]
     public string? FirstName { get; set; }
 
     [Column("lastName")]
-    [StringLength(1)]
+    [StringLength(255)]
     public string? LastName { get; set; }
 
     [Column("address")]
-    [StringLength(1)]
+    [StringLength(255)]
     public string? Address { get; set; }
 
     [Column("cardID")]

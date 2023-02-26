@@ -14,7 +14,7 @@ public partial class Role
     public int RoleId { get; set; }
 
     [Column("roleName")]
-    [StringLength(1)]
+    [StringLength(50)]
     public string? RoleName { get; set; }
 
     [InverseProperty("Role")]

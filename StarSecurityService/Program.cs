@@ -1,9 +1,23 @@
+using Microsoft.EntityFrameworkCore;
+using StarSecurityService.Data;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<StarSecurityServiceDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("StarSecurityServiceContext") ?? throw new InvalidOperationException("Connection string 'StarSecurityServiceContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    SeedData.initialize(services);
+}
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

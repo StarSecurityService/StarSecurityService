@@ -13,15 +13,15 @@ public partial class Feed
     public int FeedId { get; set; }
 
     [Column("title")]
-    [StringLength(1)]
+    [StringLength(255)]
     public string? Title { get; set; }
 
     [Column("content")]
-    [StringLength(1)]
+    [StringLength(255)]
     public string? Content { get; set; }
 
     [Column("tag")]
-    [StringLength(1)]
+    [StringLength(255)]
     public string? Tag { get; set; }
 
     [Column("postTime", TypeName = "datetime")]

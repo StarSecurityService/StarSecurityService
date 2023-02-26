@@ -14,11 +14,11 @@ public partial class Guard
     public int GuardId { get; set; }
 
     [Column("firstName")]
-    [StringLength(1)]
+    [StringLength(255)]
     public string? FirstName { get; set; }
 
     [Column("lastName")]
-    [StringLength(1)]
+    [StringLength(255)]
     public string? LastName { get; set; }
 
     [Column("serviceID")]
@@ -37,7 +37,7 @@ public partial class Guard
     public string? Weight { get; set; }
 
     [Column("status")]
-    [StringLength(1)]
+    [StringLength(255)]
     public string? Status { get; set; }
 
     [Column("avatar")]

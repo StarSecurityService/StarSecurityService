@@ -14,11 +14,11 @@ public partial class Service
     public int ServiceId { get; set; }
 
     [Column("serviceName")]
-    [StringLength(1)]
+    [StringLength(255)]
     public string? ServiceName { get; set; }
 
     [Column("description")]
-    [StringLength(1)]
+    [StringLength(1000)]
     public string? Description { get; set; }
 
     [Column("price")]
