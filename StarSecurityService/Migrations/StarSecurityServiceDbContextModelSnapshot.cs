@@ -41,6 +41,10 @@ namespace StarSecurityService.Migrations
                         .HasColumnType("nvarchar(255)")
                         .HasColumnName("cardID");
 
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreatedAt");
+
                     b.Property<string>("Email")
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)")
@@ -70,6 +74,10 @@ namespace StarSecurityService.Migrations
                         .HasColumnType("int")
                         .HasColumnName("roleID");
 
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UpdatedAt");
+
                     b.HasKey("AccountId")
                         .HasName("PK__Account__F267253E2F19DD28");
 
@@ -91,6 +99,10 @@ namespace StarSecurityService.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)")
                         .HasColumnName("content");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreatedAt");
 
                     b.Property<string>("Email")
                         .HasMaxLength(255)
@@ -114,6 +126,10 @@ namespace StarSecurityService.Migrations
                     b.Property<DateTime?>("PostTime")
                         .HasColumnType("datetime")
                         .HasColumnName("postTime");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UpdatedAt");
 
                     b.HasKey("CommentId")
                         .HasName("PK__Comment__CDDE91BDF50C4423");
@@ -137,6 +153,10 @@ namespace StarSecurityService.Migrations
                         .HasColumnType("nvarchar(255)")
                         .HasColumnName("content");
 
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreatedAt");
+
                     b.Property<DateTime?>("PostTime")
                         .HasColumnType("datetime")
                         .HasColumnName("postTime");
@@ -150,6 +170,10 @@ namespace StarSecurityService.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)")
                         .HasColumnName("title");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UpdatedAt");
 
                     b.HasKey("FeedId")
                         .HasName("PK__Feeds__A0A7D53F74E77D8E");
@@ -166,6 +190,10 @@ namespace StarSecurityService.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FeedimgId"));
 
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreatedAt");
+
                     b.Property<int?>("FeedId")
                         .HasColumnType("int")
                         .HasColumnName("feedID");
@@ -174,6 +202,10 @@ namespace StarSecurityService.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)")
                         .HasColumnName("image");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UpdatedAt");
 
                     b.HasKey("FeedimgId")
                         .HasName("PK__FeedImg__9426699EC538D1E5");
@@ -197,6 +229,10 @@ namespace StarSecurityService.Migrations
                         .HasColumnType("nvarchar(255)")
                         .HasColumnName("content");
 
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreatedAt");
+
                     b.Property<string>("Email")
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)")
@@ -219,6 +255,10 @@ namespace StarSecurityService.Migrations
                     b.Property<int?>("ServiceId")
                         .HasColumnType("int")
                         .HasColumnName("serviceID");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UpdatedAt");
 
                     b.HasKey("FeedbackId")
                         .HasName("PK__Feedback__2613FDC42606923C");
@@ -246,6 +286,10 @@ namespace StarSecurityService.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)")
                         .HasColumnName("cardID");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreatedAt");
 
                     b.Property<string>("FirstName")
                         .HasMaxLength(255)
@@ -275,6 +319,10 @@ namespace StarSecurityService.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)")
                         .HasColumnName("status");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UpdatedAt");
 
                     b.Property<string>("Weight")
                         .HasMaxLength(255)
@@ -306,6 +354,10 @@ namespace StarSecurityService.Migrations
                         .HasColumnType("int")
                         .HasColumnName("amount");
 
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreatedAt");
+
                     b.Property<int?>("Duration")
                         .HasColumnType("int")
                         .HasColumnName("duration");
@@ -321,6 +373,10 @@ namespace StarSecurityService.Migrations
                     b.Property<double?>("Total")
                         .HasColumnType("float")
                         .HasColumnName("total");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UpdatedAt");
 
                     b.HasKey("OrderId")
                         .HasName("PK__Order__0809337D2375614C");
@@ -341,6 +397,10 @@ namespace StarSecurityService.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderdetailsId"));
 
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreatedAt");
+
                     b.Property<int?>("GuardId")
                         .HasColumnType("int")
                         .HasColumnName("guardID");
@@ -348,6 +408,10 @@ namespace StarSecurityService.Migrations
                     b.Property<int?>("OrderId")
                         .HasColumnType("int")
                         .HasColumnName("orderID");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UpdatedAt");
 
                     b.HasKey("OrderdetailsId")
                         .HasName("PK__OrderDet__6497933891AC32F4");
@@ -388,10 +452,18 @@ namespace StarSecurityService.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ServiceId"));
 
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreatedAt");
+
                     b.Property<string>("Description")
                         .HasMaxLength(1000)
                         .HasColumnType("nvarchar(1000)")
                         .HasColumnName("description");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("image");
 
                     b.Property<double?>("Price")
                         .HasColumnType("float")
@@ -401,6 +473,10 @@ namespace StarSecurityService.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)")
                         .HasColumnName("serviceName");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UpdatedAt");
 
                     b.HasKey("ServiceId")
                         .HasName("PK__Service__4550733FF324B268");

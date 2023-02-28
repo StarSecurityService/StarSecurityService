@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace StarSecurityService.Models;
 
-public partial class OrderDetail
+public partial class OrderDetail : BaseEntity
 {
     [Key]
     [Column("orderdetailsID")]

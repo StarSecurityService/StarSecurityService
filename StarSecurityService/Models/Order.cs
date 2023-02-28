@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace StarSecurityService.Models;
 
 [Table("Order")]
-public partial class Order
+public partial class Order : BaseEntity
 {
     [Key]
     [Column("orderID")]

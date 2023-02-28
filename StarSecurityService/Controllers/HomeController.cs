@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using StarSecurityService.Components;
 using StarSecurityService.Models;
 using System.Diagnostics;
 
@@ -15,6 +16,7 @@ namespace StarSecurityService.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Services = new ServiceVM().ListAll();
             return View();
         }
 

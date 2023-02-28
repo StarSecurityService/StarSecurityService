@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace StarSecurityService.Models;
 
 [Table("Comment")]
-public partial class Comment
+public partial class Comment : BaseEntity
 {
     [Key]
     [Column("commentID")]

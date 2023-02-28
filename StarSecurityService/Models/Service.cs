@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace StarSecurityService.Models;
 
 [Table("Service")]
-public partial class Service
+public partial class Service : BaseEntity
 {
     [Key]
     [Column("serviceID")]
@@ -23,6 +23,9 @@ public partial class Service
 
     [Column("price")]
     public double? Price { get; set; }
+
+    [Column("image")]
+    public string? Image { get; set; }
 
     [InverseProperty("Service")]
     public virtual ICollection<Feedback> Feedbacks { get; } = new List<Feedback>();

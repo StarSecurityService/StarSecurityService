@@ -79,67 +79,78 @@ namespace StarSecurityService.Data
                     {
                         ServiceName = "Office Security Service",
                         Description = "An office is a place where businesses, companies or a unit organization work. In the office contains a lot of important documents and is the place to work, receive guests, negotiate business with customers. Therefore, it is very important to check and monitor people entering and leaving and protecting property's safety. This has created a growing and increasingly popular office security service.",
-                        Price = 100
+                        Price = 100,
+                        Image = "close-up-concentrated-businesspeople.jpg"
                     },
                     new Service
                     {
                         ServiceName = "Building Security Service",
                         Description = "The security service provided by STAR SECURITY SERVICE building is receiving a lot of attention from customers at the present time. Especially in big city areas, where there are a lot of high-rise buildings and offices. With the number of people working and living up to thousands of people, the building often generates many complicated problems. Read the article below to learn more about this service!",
-                        Price = 75
-                    },
-                    new Service
-                    {
-                        ServiceName = "Parking Security Rental Price",
-                        Description = "Are you in need of car security hire? Or are you looking for a cheap car parking service? However, have not found a professional, quality assurance, suitable supplier?",
-                        Price = 50
+                        Price = 75,
+                        Image = "full-shot-people-wearing-suits-gym.jpg"
                     },
                     new Service
                     {
                         ServiceName = "Bank Security Service",
                         Description = "The security service provided by STAR SECURITY SERVICE building is receiving a lot of attention from customers at the present time. Especially in big city areas, where there are a lot of high-rise buildings and offices. With the number of people working and living up to thousands of people, the building often generates many complicated problems. Read the article below to learn more about this service!",
-                        Price = 120
+                        Price = 120,
+                        Image = "joyful-business-people-taking-off-face-masks-while-walking-with-luggage-outdoors-from-hotel-office-buildings-front-view-business-trip-end-epidemic-concept.jpg"
                     },
                     new Service
                     {
                         ServiceName = "School Security Service",
                         Description = "School security services are very developed and are the school's top concern today. School security services will help maintain order as well as regular patrols and supervision.",
-                        Price = 10
+                        Price = 10,
+                        Image = "multi-ethnic-business-team.jpg"
                     },
                     new Service
                     {
                         ServiceName = "Super Market Security Service",
                         Description = "The demand for shopping at supermarkets is becoming extremely developed. With an extremely large number of customers, the work of ensuring security and safety is always one of the problems that many supermarkets have to worry and think about. Supermarket security service is the most effective solution chosen today. Services to help maintain order, security, safety, regular patrol and supervision in the supermarket area. So which company's supermarket security service has the best quality and reputation today? Please refer to the information in the article below.",
-                        Price = 25
+                        Price = 25,
+                        Image = "security-guard-frisking-passenger.jpg"
                     },
                     new Service
                     {
                         ServiceName = "Restaurant Security Service",
                         Description = "Restaurant security services are increasingly developing to meet the strong needs of society. The restaurant is a place where many people gather, so the security needs here must always be taken care of and guaranteed.",
-                        Price = 15
+                        Price = 15,
+                        Image = "serious-coworkers-waiting-business-partners.jpg"
                     },
                     new Service
                     {
                         ServiceName = "Inn Security Service",
                         Description = "Apartment security services are receiving a lot of attention in recent times. STAR SECURITY SERVICE professional security company specializes in providing professional security services with many years of experience, we have been receiving absolute trust and appreciation from many customers.",
-                        Price = 20
+                        Price = 20,
+                        Image = "serious-successful-business-colleagues-posing.jpg"
                     },
                     new Service
                     {
                         ServiceName = "Hospital Security Service",
                         Description = "STAR SECURITY SERVICE is a leading unit in the field of providing professional hospital security services with many years of experience in the profession. Professional hospital security services are used by many customers today. The following article of Bach Thang will help you understand more about this hospital security service.",
-                        Price = 25
+                        Price = 25,
+                        Image = "successful-businessmen-with-ties.jpg"
                     },
                     new Service
                     {
                         ServiceName = "Event and festivals Security Service",
                         Description = "Events and festivals will often have a large number of participants and security issues always need to be focused. There have been many unexpected cases that happened, the main reason being the lax protection, affecting both event owners and participants. In this article, STAR SECURITY SERVICE will introduce to you detailed information about event security services. Let's find out through the article below!",
-                        Price = 75
+                        Price = 75,
+                        Image = "successful-business-team.jpg"
                     },
                     new Service
                     {
                         ServiceName = "Hotel Security Service",
                         Description = "The hotel is the favorite place to stay by customers when they are on vacation, travel or on business. Every day, the number of customers entering and leaving the hotel is very large, so the need to protect the safety of people and property as well as ensure the occurrence of damage, fire and explosion problems is very important. Because of that understanding, the hotel security service was born. So which hotel security service has the best quality and reputation today? Please refer to the information in the article below.",
-                        Price = 50
+                        Price = 50,
+                        Image = "successful-business-team-standing-together.jpg"
+                    },
+                    new Service
+                    {
+                        ServiceName = "Personal Security Service",
+                        Description = "The Personal is the favorite place to stay by customers when they are on vacation, travel or on business. Every day, the number of customers entering and leaving the hotel is very large, so the need to protect the safety of people and property as well as ensure the occurrence of damage, fire and explosion problems is very important. Because of that understanding, the hotel security service was born. So which hotel security service has the best quality and reputation today? Please refer to the information in the article below.",
+                        Price = 150,
+                        Image = "team-businesswomen-standing-together-outdoors-giving-support-each-other-discussing-project-front-view-community-teamwork-concept.jpg"
                     },
                 };
                 foreach (var service in services)
@@ -226,12 +237,12 @@ namespace StarSecurityService.Data
                         CardId = "HR123456789"
                     },
 
-                    // Parking Security Rental Price
+                    // Personal Security Service
                     new Guard
                     {
                         FirstName = "Tap",
                         LastName = "Can Binh",
-                        ServiceId = services.Single(service => service.ServiceName == "Parking Security Rental Price").ServiceId,
+                        ServiceId = services.Single(service => service.ServiceName == "Personal Security Service").ServiceId,
                         Phone = "6352999536",
                         Height = "5.9ft",
                         Weight = "70kg",
@@ -243,7 +254,7 @@ namespace StarSecurityService.Data
                     {
                         FirstName = "Park",
                         LastName = "Chung-Hee",
-                        ServiceId = services.Single(service => service.ServiceName == "Parking Security Rental Price").ServiceId,
+                        ServiceId = services.Single(service => service.ServiceName == "Personal Security Service").ServiceId,
                         Phone = "7231888363",
                         Height = "5.9ft",
                         Weight = "70kg",
@@ -255,7 +266,7 @@ namespace StarSecurityService.Data
                     {
                         FirstName = "Christian",
                         LastName = "de Castries",
-                        ServiceId = services.Single(service => service.ServiceName == "Parking Security Rental Price").ServiceId,
+                        ServiceId = services.Single(service => service.ServiceName == "Personal Security Service").ServiceId,
                         Phone = "6473009274",
                         Height = "6.2ft",
                         Weight = "80kg",

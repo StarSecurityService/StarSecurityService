@@ -3,6 +3,13 @@ using StarSecurityService.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddDistributedMemoryCache();
+
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(10);
+});
+
 builder.Services.AddDbContext<StarSecurityServiceDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("StarSecurityServiceContext") ?? throw new InvalidOperationException("Connection string 'StarSecurityServiceContext' not found.")));
 
@@ -34,8 +41,22 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapControllerRoute(
+app.UseSession();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+      name: "areas",
+      pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+    );
+    endpoints.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+    endpoints.MapAreaControllerRoute(
+                         name: "Admin",
+                         areaName: "Admin",
+                         pattern: "Admin/{controller=Home}/{action=Index}"
+                     );
+});
 app.Run();

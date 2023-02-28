@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace StarSecurityService.Models;
 
 [Table("Guard")]
-public partial class Guard
+public partial class Guard : BaseEntity
 {
     [Key]
     [Column("guardID")]

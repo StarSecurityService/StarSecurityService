@@ -1,49 +1,140 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - StarSecurityService</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/StarSecurityService.styles.css" asp-append-version="true" />
-</head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">StarSecurityService</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - StarSecurityService - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Security Service Company</title>
+    <link rel="shortcut icon" type="image/icon" href="~/ClientAssets/image/logo-1.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="~/ClientAssets/style/home.css">
+    <link rel="stylesheet" href="~/ClientAssets/style/foot-head.css">
+</head>
+
+<body>
+    <div class="overlay"></div>
+    <!-- Notification  -->
+    <div class="notice">
+        <div class="noticeItem address">
+            <i class="icon fa-solid fa-location-dot"></i>8A, Ton That Thuyet, My Dinh, Ha Noi
         </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+        <div class="noticeItem mail"><i class="icon fa-solid fa-envelope"></i>starsercurityservice4.0@gmail.com</div>
+        <div class="noticeItem phone"><i class="icon fa-solid fa-phone"></i>+84 923 128 888</div>
+        <div class="noticeItem fb-icon"><i class="icon fa-brands fa-facebook-f"></i></div>
+    </div>
+    <!-- End Notification  -->
+    <!-- Header Start  -->
+    <header>
+        <div class="navBar">
+            <div class="navBar-icon-responsive">
+                <a id="barsBtn"><i class="fa-solid fa-bars"></i></a>
+            </div>
+            <div class="logo">
+                <a href="#"><img src="~/ClientAssets/image/logo-1.png" width="48px" alt="logo"></a>
+            </div>
+            <div class="navBar-details">
+                <div class="navBar-details--closeButton">
+                    <a id="closeBtn"><i class="fa-solid fa-xmark"></i></a>
+                </div>
+                <div class="active navBar-item navBar-home"><a href="#">HOME</a></div>
+                <div class="navBar-item navBar-intro"><a href="#">ABOUT US</a></div>
+                <div class="navBar-item navBar-training"><a href="#">TRAINING</a></div>
+                <div class="navBar-item navBar-recruitment"><a href="#">RECRUITMENT</a></div>
+                <div class="navBar-item navBar-news"><a href="#">NEWS</a></div>
+                <div class="navBar-item navBar-contact"><a href="#">CONTACT</a></div>
+                <div class="navBar-item navBar-phone">HOTLINE +84 923 128 888</div>
+                <div class="navBar-item navBar-searchIcon"><i class="fa-solid fa-magnifying-glass"></i></div>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+
+    @RenderBody()
+
+
+ <!-- Footer Start  -->
+  <footer>
+    <div class="footerContainer">
+      <div class="footerLeft">
+        <div class="footerLeft--top">
+          <ul>
+            <li>
+              <h3>Information about: Star Security Service</h3>
+            </li>
+            <li>
+              <i class="icon fa-solid fa-location-crosshairs"></i>
+              <ul>
+                <li><strong>Address</strong></li>
+                <li>8A, Ton That Thuyet, My Dinh, Ha Noi</li>
+              </ul>
+            </li>
+            <li>
+              <i class="icon fa-solid fa-blender-phone"></i>
+              <ul>
+                <li><strong>Hotline:</strong></li>
+                <li>+84 923 128 888</li>
+              </ul>
+            </li>
+            <li>
+              <i class="icon fa-solid fa-phone"></i>
+              <ul>
+                <li><strong>Contact</strong></li>
+                <li>+84 972 345 124</li>
+              </ul>
+            </li>
+            <li>
+              <i class="icon fa-solid fa-envelope-open-text"></i>
+              <ul>
+                <li><strong>Email:</strong></li>
+                <li>starsercurityservice4.0@gmail.com</li>
+              </ul>
+            </li>
+            <li>
+              <i class="icon fa-solid fa-globe"></i>
+              <ul><strong>starsecurityservice.com</strong></ul>
+            </li>
+          </ul>
+        </div>
+        <div class="footerLeft--mid">
+          <ul>
+            <li>Certification for business: </li>
+            <li>* Number: 545/GCN</li>
+            <li>* Place of issue: Police Department for Administrative Management of Social Affairs - PC06 - Ho Chi Minh
+              City Police</li>
+            <li>* Tax code: 0314532245</li>
+            <li>* Business registration address: 8A, Ton That Thuyet, My Dinh, Ha Noi</li>
+            <li>* Representative: Mr. Dinh Quang Anh</li>
+          </ul>
+        </div>
+        <div class="footerLeft-bottom">
+          <ul>
+            <h4><a href="#">Star Security Service</a> | <a href="#">Star Security</a> | <a href="#">Star Security
+                Company</a> | <a href="#">Security Event Protection</a> | <a href="#">Security Hospital</a> | <a
+                href="#">Hotel Security</a> | <a href="#">Security Service Quote</a>
+            </h4>
+          </ul>
+        </div>
+      </div>
+      <div class="footerRight">
+        <ul>
+          <li>
+            <h3>Map to Star Security Service Company</h3>
+          </li>
+          <li><iframe id="iframe"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.0966092835088!2d105.78010801488341!3d21.028820085998458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab86cece9ac1%3A0xa9bc04e04602dd85!2zRlBUIEFwdGVjaCBIw6AgTuG7mWkgLSBI4buHIFRo4buRbmcgxJDDoG8gVOG6oW8gTOG6rXAgVHLDrG5oIFZpw6puIFF14buRYyBU4bq_IChTaW5jZSAxOTk5KQ!5e0!3m2!1svi!2s!4v1677477245038!5m2!1svi!2s"
+              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe></li>
+          <li>
+            <button class="couponBtn"><a href="#">Take a coupon!</a></button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer End  -->
+    <script src="~/ClientAssets/js/main.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace StarSecurityService.Models;
 
 [Table("FeedImg")]
-public partial class FeedImg
+public partial class FeedImg : BaseEntity
 {
     [Key]
     [Column("feedimgID")]

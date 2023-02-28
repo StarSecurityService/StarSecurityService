@@ -1,8 +1,165 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+
+    var services = (List<Service>)ViewBag.Services;
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<img id="banner" src="~/ClientAssets/image/security-shield-privacy-protection-confidentiality-concept.jpg" width="100%" alt="Banner">
+  <section class="descriptionCompany">
+    <div class="descriptionCompany--top">
+      <p><strong>Star Security</strong> is the leading cheap and prestigious <strong>professional security service in
+          Vietnam</strong>,
+        specializing in providing global security protection service solutions. Hire security services for<strong>
+          events,
+          buildings, banks, companies, offices, restaurants, factories, hotels, supermarkets, shops, apartments,
+          hospitals,
+          schools, parking...</strong>, in Here you can <strong>hire a security guard</strong> by the hour or a
+        <strong>reputable
+          and professional</strong>
+        24/24 day
+        and night security. With hundreds of experienced, well-trained security guards, we will serve you with 100%
+        satisfaction.
+      </p>
+    </div>
+    <div class="descriptionCompany--bottom">
+      <p>With a human base of former police and military officers and more than 5 years of experience, <strong>Star
+          Security
+          Company</strong> is proud to be one of the prestigious security service providers in Viet Nam. number 1
+        professional today.</p>
+    </div>
+    <div class="descriptionCompany--image">
+        <img src="~/ClientAssets/image/successful-business-team.jpg" alt="Hinh anh minh hoa">
+    </div>
+  </section>
+
+  <section class="introduction container">
+    <h1 class="title linearTitle">Introduction about Star Security Service</h1>
+    <h3>Information about Company: </h3>
+    <ul>
+      <li>Tax code: 0314532245</li>
+      <li>Business registration address: 8A, Ton That Thuyet, My Dinh, Ha Noi</li>
+      <li>Representative: Mr. Dinh Quang Anh</li>
+      <li>Operating date: 2017-07-24</li>
+    </ul>
+    <div class="descriptionCompany--top">
+      <p><strong>Star Security</strong> is a business unit in the main field of security. The company was granted a
+        certificate of
+        eligibility to operate security services business in London and US by the London Police on <strong>November 10,
+          2017</strong>. Up
+        to now, the company has more branches in <strong>America, Australia, Philippines, Germany, Spain,...</strong>
+      </p>
+    </div>
+    <div class="descriptionCompany--top">
+      <p>With a long history of experience in the security profession and a team of founding, operating, managing and
+        recruiting young staff with a well-trained professional style, Star Security confidently completes all tasks.
+        tasks
+        that customers trust in the best way. Over the years, Star Security has cooperated with thousands of individual
+        and corporate customers at home and abroad. We also operate with a variety of business types: factory security
+        services, industrial park security, office security, building security, apartment security, construction care,
+        schools, events, festivals, protecting key people, cafes, hotel systems, fashion, food companies, warehouses ...
+        to supermarkets, commercial centers, large resorts run by companies and corporations large domestic and foreign
+        management with cheap cost.</p>
+    </div>
+    <div class="descriptionCompany--top">
+      <p>The core of Star Security's main human resources is a team of former police officers who are reputable,
+        reliable, and very professional, integrity, and integrity. Currently, Star Security owns the top hundreds of the
+        best employees who are rigorously selected and continuously trained to improve their professional quality as
+        well as their professional and responsible working attitude. Thanks to that, not only meet the requirements of
+        physical strength and martial arts, but communication and behavior skills are also increasingly improved
+        compared to the service units to protect you. In addition, inventions for modern security technology equipment
+        support in security work.</p>
+    </div>
+    <button class="seemoreBtn">See more</button>
+    <div class="top10service">
+      <h1>Top 10 professional service in Viet Nam of Star Security Company</h1>
+      <div class="listService">
+        <ul>
+          <li>1. Event Protection</li>
+          <li>2. Building Security</li>
+          <li>3. Bank Security</li>
+          <li>4. Office Security</li>
+          <li>5. Hotel Security</li>
+        </ul>
+        <ul>
+          <li>6. Inn Security</li>
+          <li>7. Hospital Security</li>
+          <li>8. School Security</li>
+          <li>9. Restaurant Security</li>
+          <li>10. Supermarkets Security</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="priceList container">
+    <div class="priceList--title">
+      <h1 class="linearTitle">Price List of Security Service</h1>
+      <p>Please see the most complete <strong>price list</strong> of cheap security service rental of Star Security
+        Service Company:</p>
+    </div>
+    <div class="priceList--tablePrice center">
+      <table>
+        <tr class="headTable">
+          <th id="stt">STT</th>
+          <th id="serviceName">Service Name</th>
+          <th id="price24hours">Price/24 hour($)</th>
+        </tr>
+       
+
+
+                @foreach(var item in services)
+                {
+                         <tr>
+                    <td>@item.ServiceId</td>
+                    <td>@item.ServiceName</td>
+                    <td>@item.Price</td>
+                </tr>
+                }
+                <!-- Start Price Table   -->
+          
+          <!-- End Price Table  -->
+
+
+       
+      </table>
+    </div>
+  </section>
+
+  <section class="securityService container">
+    <div class="securityService--title text-center">
+      <h1 class="linearTitle">Star Security Service Company</h1>
+      <p>Thank you for choosing to hire Star security services to welcome you to our big family. You have made a
+        wise choice of services of Star Security Service with outstanding quality to help you get satisfaction during
+        the service use.</p>
+    </div>
+    <div class="securityService--serviceContainer">
+
+
+
+      <!-- List Service  -->
+
+        @foreach(var service in services)
+        {
+            <div class="securityService--serviceItem">
+                <img width="340px" src="~/ClientAssets/image/@service.Image" alt="Service Image">
+                <h4 class="serviceDescription text-center">
+                    @service.ServiceName
+                </h4>
+            </div>
+        }
+        
+      <!-- End List Service  -->
+
+
+
+    </div>
+  </section>
+
+
+  <!-- Q&A about company  -->
+  <section class="aboutUs container">
+    <div class="aboutUs--title">
+
+    </div>
+  </section>
+  <!-- End Q&A  -->

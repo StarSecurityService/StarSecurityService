@@ -1,0 +1,267 @@
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+a:hover {
+  font-weight: 600;
+}
+
+/* Notice Style */
+.notice {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  background-color: #e5e5e5 !important;
+}
+
+.address,
+.mail {
+  border-right: 1px solid black;
+}
+
+.icon {
+  margin-right: 8px;
+}
+
+.noticeItem {
+  font-size: 14px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  color: rgba(102, 102, 102, 0.85);
+}
+/* End Notice */
+
+/* NavBar Style */
+header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+.navBar {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 70px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: #f1f1f1;
+}
+
+.navBar-details {
+  display: flex;
+}
+
+.navBar-item {
+  margin-right: 32px;
+  font-size: 16px;
+  color: rgba(102, 102, 102, 0.85);
+  display: flex;
+  align-items: center;
+}
+
+.active {
+  color: rgba(17, 17, 17, 0.85);
+}
+
+.navBar-phone {
+  color: #7a9c59;
+  border: 2px solid currentColor;
+  padding: 8px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+.navBar-searchIcon {
+  font-size: 1.2em;
+}
+
+.navBar-icon-responsive {
+  display: none;
+}
+
+.navBar-details--closeButton {
+  display: none;
+}
+/* End NavBar */
+
+/* Footer Style */
+footer {
+  margin-top: 52px;
+  background-color: #031f30;
+  color: #f1f1f1;
+}
+.footerContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.footerRight ul li {
+  list-style-type: none;
+}
+
+.couponBtn {
+  margin-top: 12px;
+  padding: 8px 32px;
+  border: 1px solid #f1f1f1;
+  background-color: #ac2a2a;
+  color: #f1f1f1;
+  border-radius: 4px;
+}
+
+.footerLeft ul li {
+  display: flex;
+  align-items: center;
+  margin: 4px 0;
+}
+
+.footerLeft--top .icon {
+  color: rgb(225, 178, 155);
+  margin-right: -20px;
+}
+
+.footerLeft--top strong {
+  color: #d9df1e;
+}
+/* End Footer */
+
+@media (max-width: 1024px) {
+  .noticeItem {
+    font-size: 14px;
+  }
+  .navBar-item {
+    font-size: 14px;
+    margin-right: 20px;
+  }
+  .footerContainer {
+    padding: 0 12px;
+  }
+}
+
+@media (max-width: 820px) {
+  .noticeItem {
+    font-size: 12px;
+  }
+  .navBar-item {
+    font-size: 12px;
+    margin-right: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Notification */
+  .noticeItem {
+    height: 20px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    color: rgba(102, 102, 102, 0.85);
+    font-size: 12px;
+  }
+  /* End Notification */
+
+  /* NavBar */
+  .navBar-details {
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    /* width: fit-content !important; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 100vh;
+    gap: 10px;
+    justify-content: flex-start !important;
+    text-align: left;
+    z-index: 999;
+    transition: 0.25s;
+    transform: translateX(-100%);
+    background: linear-gradient(311.76deg, #d4e7fe -15.24%, #ffffff 78.85%);
+    padding-top: 16px;
+    padding-left: 24px;
+  }
+
+  .navBar-item {
+    margin-top: 12px;
+  }
+
+  .navBar-phone {
+    display: none;
+  }
+
+  .navBar-details.active {
+    transform: translateX(0);
+  }
+
+  .navBar-details--closeButton {
+    display: flex;
+    position: absolute;
+    right: 10px;
+    justify-content: flex-end;
+    font-size: 30px;
+    padding: 15px;
+    cursor: pointer;
+  }
+  .navBar-icon-responsive {
+    display: block;
+    cursor: pointer;
+  }
+  .navBar {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 70px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+  /* End NavBar */
+
+  /* Footer */
+  .footerContainer {
+    flex-direction: column;
+    padding: 0 12px;
+  }
+  /* End Footer */
+}
+
+@media (max-width: 600px) {
+  .notice {
+    display: none;
+  }
+  #iframe {
+    width: 500px;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: 0.25s;
+  visibility: hidden;
+}
+
+.overlay.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+#closeBtn {
+  display: flex;
+  position: absolute;
+  justify-content: flex-end;
+  font-size: 30px;
+}

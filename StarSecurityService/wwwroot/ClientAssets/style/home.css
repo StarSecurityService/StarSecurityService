@@ -1,0 +1,146 @@
+p {
+  line-height: 28px;
+}
+
+.linearTitle {
+  -webkit-background-clip: text;
+  color: transparent !important;
+  background-image: linear-gradient(
+    89deg,
+    #b28768 0%,
+    #f4dfbc 49%,
+    #926037 100%
+  ) !important;
+  font-size: 50px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+#banner {
+  margin-bottom: 32px;
+}
+
+/* Description First */
+.descriptionCompany {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.descriptionCompany--image img {
+  width: 100%;
+}
+
+.descriptionCompany--top {
+  background-color: #f3f3f3;
+  padding: 15px;
+  border-radius: 15px;
+  margin-bottom: 32px;
+}
+/* End Description*/
+
+/* Introduction */
+.title {
+  display: flex;
+  justify-content: center;
+}
+
+.introduction ul li {
+  margin: 12px 0;
+}
+
+.seemoreBtn {
+  display: flex;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #f1f1f1;
+  background: black;
+  margin: 0 auto;
+}
+
+.top10service h1 {
+  display: flex;
+  justify-content: center;
+}
+
+.listService {
+  display: flex;
+  justify-content: space-around;
+}
+
+.listService ul li {
+  list-style-type: none;
+  font-weight: 600;
+  font-size: 18px;
+}
+/* End Introduction */
+
+/* Price List */
+.priceList--title {
+  text-align: center;
+}
+
+table {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+}
+
+table tr,
+th,
+td {
+  text-align: left;
+  padding: 8px 0;
+}
+
+table tr {
+  border-bottom: 1px solid black;
+}
+
+#serviceName {
+  width: 400px;
+}
+
+#price1hour {
+  width: 250px;
+}
+
+#price24hours {
+  width: 250px;
+}
+
+#stt {
+  width: 60px;
+}
+/* End Price List */
+
+/* Service List */
+.securityService--serviceContainer {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 16px;
+}
+
+.securityService--serviceItem {
+  text-align: center;
+}
+/* End Service List */
+
+@media (max-width: 1024px) {
+  section {
+    padding: 0 16px;
+  }
+}
