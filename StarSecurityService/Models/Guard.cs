@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
@@ -54,4 +55,8 @@ public partial class Guard : BaseEntity
     [ForeignKey("ServiceId")]
     [InverseProperty("Guards")]
     public virtual Service? Service { get; set; }
+
+    [NotMapped]
+    [DisplayName("Upload Avatar")]
+    public IFormFile ImageFile { get; set; }
 }

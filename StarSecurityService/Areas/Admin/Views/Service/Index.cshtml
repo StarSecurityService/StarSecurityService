@@ -1,0 +1,206 @@
+﻿@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@model IPagedList<StarSecurityService.Models.Service>
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container" style="padding-top: 100px;  min-height: 80vh">
+    <div class="row">
+        <div class="col-12">
+            <h3>
+                Services
+            </h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8" style="float: left;">
+            <form asp-action="Index" asp-controller="Service" asp-area="Admin" method="get">
+                <div class="col-sm-8">
+                    <input type="text" name="search" value="@ViewData["CurrentFilter"]" />
+                </div>
+                <div class="col-sm-4">
+                    <button type="submit">Search</button>
+                </div>
+            </form>
+
+        </div>
+
+        <div class="col-md-4" style="float: right;">
+            <a asp-action="Create" style="float: right;" class="btn btn-primary"><span>Add Service</span></a>
+        </div>
+        <div class="row">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    Sort By
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Name</a></li>
+                    <li><a asp-action="Index" asp-route-sortOrder="@ViewData["PriceSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Price</a></li>
+                    <li><a asp-action="Index" asp-route-sortOrder="@ViewData["IdSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">ID</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Thumbnail
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().ServiceId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().ServiceName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().Description)
+                </th>
+                <th>
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="~/ClientAssets/image/@item.Image" width="120px" height="100px">
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.ServiceId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.ServiceName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.Description)
+                    </td>
+                    <td>
+                        <a class="btn btn-primary btn-tone m-r-5" asp-action="Edit" asp-route-id="@item.ServiceId">Edit</a>
+                        <a class="btn btn-secondary btn-tone m-r-5" asp-action="Details" asp-route-id="@item.ServiceId">Details</a>
+                        <a class="btn btn-success btn-tone m-r-5" asp-action="Delete" asp-route-id="@item.ServiceId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="pagination-custom">
+        @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index",new {page}))
+    </div>
+
+</div>
+<style>
+    .pagination {
+        display: compact;
+        padding: 10px;
+        margin: 0;
+        border-radius: 4px;
+    }
+
+        .pagination > li {
+            display: inline-grid;
+        }
+
+            .pagination > li > a,
+            .pagination > li > span {
+                position: relative;
+                float: left;
+                padding: 10px;
+                margin-left: -1px;
+                line-height: 2;
+                text-decoration: none;
+                background-color: #eee;
+                border: 1px solid #dddddd;
+            }
+
+            .pagination > li:first-child > a,
+            .pagination > li:first-child > span {
+                margin-left: 0;
+                border-bottom-left-radius: 4px;
+                border-top-left-radius: 4px;
+            }
+
+            .pagination > li:last-child > a,
+            .pagination > li:last-child > span {
+                border-top-right-radius: 4px;
+                border-bottom-right-radius: 4px;
+            }
+
+            .pagination > li > a:hover,
+            .pagination > li > span:hover,
+            .pagination > li > a:focus,
+            .pagination > li > span:focus {
+                background-color: #eeeeee;
+            }
+
+        .pagination > .active > a,
+        .pagination > .active > span,
+        .pagination > .active > a:hover,
+        .pagination > .active > span:hover,
+        .pagination > .active > a:focus,
+        .pagination > .active > span:focus {
+            z-index: 2;
+            color: #000;
+            cursor: default;
+            background-color: #428bca;
+            border-color: #428bca;
+        }
+
+        .pagination > .disabled > span,
+        .pagination > .disabled > a,
+        .pagination > .disabled > a:hover,
+        .pagination > .disabled > a:focus {
+            color: #999999;
+            cursor: not-allowed;
+            background-color: #eee;
+            border-color: #dddddd;
+        }
+
+    .pagination-lg > li > a,
+    .pagination-lg > li > span {
+        padding: 10px;
+        font-size: 36px;
+    }
+
+    .pagination-lg > li:first-child > a,
+    .pagination-lg > li:first-child > span {
+        border-bottom-left-radius: 6px;
+        border-top-left-radius: 6px;
+    }
+
+    .pagination-lg > li:last-child > a,
+    .pagination-lg > li:last-child > span {
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+    }
+
+    .pagination-sm > li > a,
+    .pagination-sm > li > span {
+        padding: 0;
+        font-size: 12px;
+    }
+
+    .pagination-sm > li:first-child > a,
+    .pagination-sm > li:first-child > span {
+        border-bottom-left-radius: 3px;
+        border-top-left-radius: 3px;
+    }
+
+    .pagination-sm > li:last-child > a,
+    .pagination-sm > li:last-child > span {
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+    }
+</style>

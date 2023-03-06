@@ -1,0 +1,87 @@
+﻿@model StarSecurityService.Models.Guard
+
+@{
+        ViewData["Title"] = "Delete Guard";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container" style="padding-top: 100px;  min-height: 80vh">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Delete Guard</h1>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.GuardId)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.GuardId)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.FirstName)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.LastName)
+                </dd>
+                <dt>
+                    Service
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Service.ServiceName)
+                </dd>
+                <dt>
+                    Image
+                </dt>
+                <dd>
+                    <img src="@("~/adminassests/Image/" + Model.Avatar)" asp-append-version="true" width="80" height="100px" />
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Status)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Status)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Phone)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Phone)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.CardId)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.CardId)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Height)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Height)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Weight)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Weight)
+                </dd>
+            </dl>
+
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="GuardId" />
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                <a asp-action="Index">Back to List</a>
+            </form>
+        </div>
+    </div>
+</div>

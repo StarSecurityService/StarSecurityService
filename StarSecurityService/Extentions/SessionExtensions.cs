@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace OnlineBookLibrary.Extentions
+namespace StarSecurityService.Extentions
 {
     public static class SessionExtensions
     {

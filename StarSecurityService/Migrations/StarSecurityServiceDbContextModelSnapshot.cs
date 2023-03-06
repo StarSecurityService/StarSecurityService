@@ -36,6 +36,11 @@ namespace StarSecurityService.Migrations
                         .HasColumnType("nvarchar(255)")
                         .HasColumnName("address");
 
+                    b.Property<string>("Avatar")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnName("avatar");
+
                     b.Property<string>("CardId")
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)")

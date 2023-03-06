@@ -1,4 +1,12 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@using StarSecurityService.Extentions;
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    //Get object from session
+    var mySessionObject = HttpContextAccessor.HttpContext.Session.GetObjectFromJson<UserSession>("UserDetails");
+}
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>

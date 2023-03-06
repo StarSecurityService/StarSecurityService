@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
@@ -35,4 +36,8 @@ public partial class Service : BaseEntity
 
     [InverseProperty("Service")]
     public virtual ICollection<Order> Orders { get; } = new List<Order>();
+
+    [NotMapped]
+    [DisplayName("Upload Service Image")]
+    public IFormFile ImageFile { get; set; }
 }

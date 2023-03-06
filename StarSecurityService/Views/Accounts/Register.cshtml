@@ -1,0 +1,66 @@
+﻿@model StarSecurityService.Models.ViewModels.RegisterVM
+@{
+    ViewData["Title"] = "Register";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Star Security Service</title>
+    <link rel="shortcut icon" type="../image/icon" href="~/ClientAssets/image/logo-1.png" />
+    <link rel="stylesheet" href="owl-carousel/scss/owl.carousel.scss">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="~/ClientAssets/style/signin-signup.css">
+</head>
+
+<body>
+    <img id="background" src="~/ClientAssets/image/security-shield-privacy-protection-confidentiality-concept.jpg" alt="Background">
+    <div class="container">
+        <div class="contentSignup">
+            <div class="loginForm">
+                <div class="topForm">
+                    <div class="title">
+                        <h1>Sign-up</h1>
+                        <h4>Please enter your information to sign up a new account</h4>
+                    </div>
+                </div>
+                <div>
+                    <form asp-action="Register" class="formSignup">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        @TempData["success"]
+                        <div class="formName">
+                            <div class="firstName">
+                                <label asp-for="FirstName">First Name: </label>
+                                <input asp-for="FirstName" type="text">
+                            </div>
+                            <div class="lastName">
+                                <label asp-for="LastName">Last Name: </label>
+                                <input asp-for="LastName" type="text">
+                            </div>
+                        </div>
+                        <label asp-for="Email">Email: </label>
+                        <input asp-for="Email" type="email">
+                        <label asp-for="Password">Password: </label>
+                        <input asp-for="Password" type="password">
+                        <label asp-for="CardId">Identity Number: </label>
+                        <input asp-for="CardId" type="text">
+                        <label asp-for="Address">Address: </label>
+                        <input asp-for="Address" type="text">
+                        <label asp-for="Phone">Phone number: </label>
+                        <input asp-for="Phone" type="text">
+                        <button type="submit" id="submitBtn">
+                            Submit
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
@@ -39,6 +40,9 @@ public partial class Account : BaseEntity
     [Column("address")]
     [StringLength(255)]
     public string? Address { get; set; }
+    [Column("avatar")]
+    [StringLength(255)]
+    public string? Avatar { get; set; }
 
     [Column("cardID")]
     [StringLength(255)]
@@ -50,4 +54,8 @@ public partial class Account : BaseEntity
     [ForeignKey("RoleId")]
     [InverseProperty("Accounts")]
     public virtual Role? Role { get; set; }
+
+    [NotMapped]
+    [DisplayName("Upload Avatar")]
+    public IFormFile ImageFile { get; set; }
 }

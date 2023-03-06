@@ -1,0 +1,54 @@
+﻿@model StarSecurityService.Models.ViewModels.LoginVM
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In - Star Security Service</title>
+    <link rel="shortcut icon" type="../image/icon" href="~/ClientAssets/image/logo-1.png" />
+  <link rel="stylesheet" href="owl-carousel/scss/owl.carousel.scss">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="~/ClientAssets/style/signin-signup.css">
+</head>
+
+<body>
+    <img id="background" src="~/ClientAssets/image/security-shield-privacy-protection-confidentiality-concept.jpg" alt="Background">
+  <div class="container">
+    <div class="content">
+      <div class="loginForm">
+        <div class="topForm">
+          <div class="title">
+            <h1>Sign-in</h1>
+            <h4>Please enter your email and password to sign in</h4>
+          </div>
+        </div>
+        <div>
+          <form asp-action="Login" class="inputGroup">
+            <label asp-for="Email"><strong>Email:</strong> </label>
+            <input asp-for="Email" type="email"/>
+            <label asp-for="Password"><strong>Password:</strong> </label>
+            <input asp-for="Password" type="password"/>
+            <button type="submit" id="submitBtn">Submit</button>
+          </form>
+        </div>
+        <div class="bottom">
+          <p><strong>Or log in with: </strong></p>
+          <ul>
+            <li><i class="fb-icon fa-brands fa-facebook-f"></i></li>
+            <li><i class="gg-icon fa-brands fa-google"></i></li>
+            <li><i class="tw-icon fa-brands fa-twitter"></i></li>
+          </ul>
+          <p>You don't have an account? <a href="#">Sign-up</a> now</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

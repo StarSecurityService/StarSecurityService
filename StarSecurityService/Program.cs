@@ -1,5 +1,9 @@
+using AspNetCoreHero.ToastNotification;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using StarSecurityService.Data;
+using Microsoft.CodeAnalysis;
+using static Microsoft.AspNetCore.Razor.Language.TagHelperMetadata;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +18,10 @@ builder.Services.AddDbContext<StarSecurityServiceDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("StarSecurityServiceContext") ?? throw new InvalidOperationException("Connection string 'StarSecurityServiceContext' not found.")));
 
 // Add services to the container.
+
 builder.Services.AddControllersWithViews();
+builder.Services.AddNotyf(config => { config.DurationInSeconds = 3; config.IsDismissable = true; config.Position = NotyfPosition.TopRight; });
+/*builder.Services.AddControllersWithViews();*/
 
 var app = builder.Build();
 

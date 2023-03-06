@@ -16,7 +16,7 @@ namespace StarSecurityService.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.Services = new ServiceVM().ListAll();
+            ViewBag.Services = new ServiceComponents().ListAll().GetRange(0, 6);
             return View();
         }
 

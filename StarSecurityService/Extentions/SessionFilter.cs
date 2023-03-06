@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.EntityFrameworkCore;
 using StarSecurityService.Models;
 
-namespace OnlineBookLibrary.Extentions
+namespace StarSecurityService.Extentions
 {
 	public class SessionFilter : Attribute, IActionFilter
 	{

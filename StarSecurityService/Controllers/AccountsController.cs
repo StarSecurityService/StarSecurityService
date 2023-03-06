@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OnlineBookLibrary;
-using OnlineBookLibrary.Extentions;
+using StarSecurityService;
+using StarSecurityService.Extentions;
 using StarSecurityService.Data;
 using StarSecurityService.Models;
+using StarSecurityService.Models.ViewModels;
 
 namespace StarSecurityService.Controllers
 {
@@ -25,36 +26,36 @@ namespace StarSecurityService.Controllers
         // Post-Register
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register([Bind("FirstName, LastName, RoleId, Email, Password, Phone, Address, CardId")] Account account)
+        public async Task <IActionResult> Register(RegisterVM model)
         {
             if (ModelState.IsValid)
             {
-                if (checkEmail(account.Email) > 0)
+                if (checkEmail(model.Email) > 0)
                 {
                     ModelState.AddModelError("", "Email is already exist!");
                 }
-                else if (checkCardId(account.CardId) > 0)
+                else if (checkCardId(model.CardId) > 0)
                 {
-                    ModelState.AddModelError("", "Email is already exist!");
+                    ModelState.AddModelError("", "Identity number is already exist!");
                 }
                 else
                 {
                     var u = new Account();
-                    u.FirstName = account.FirstName;
-                    u.LastName = account.LastName;
-                    u.Email = account.Email;
-                    u.Password = BCrypt.Net.BCrypt.HashPassword(account.Password); /*GetMD5(user.Password + GetRandomKey());*/
-                    u.Phone = account.Phone;
-                    u.Address = account.Address;
-                    u.CardId = account.CardId;
+                    u.FirstName = model.FirstName;
+                    u.LastName = model.LastName;
+                    u.Email = model.Email;
+                    u.Password = BCrypt.Net.BCrypt.HashPassword(model.Password); /*GetMD5(user.Password + GetRandomKey());*/
+                    u.Phone = model.Phone;
+                    u.Address = model.Address;
+                    u.CardId = model.CardId;
                     u.RoleId= 3;
 
                     _context.Add(u);
                     await _context.SaveChangesAsync();
                     if (_context.Accounts.FirstOrDefault(i => i.Email == u.Email) != null)
                     {
-                        ViewBag.Success = "Signup successfully!";
-                        account = new Account();
+                        TempData["success"] = "Sign-up successfully!";
+                        model = new RegisterVM();
                     }
                     else
                     {
@@ -62,7 +63,7 @@ namespace StarSecurityService.Controllers
                     }
                 }
             }
-            return View(account);
+            return View(model);
         }
 
         private int checkEmail(string? Email)
@@ -90,15 +91,15 @@ namespace StarSecurityService.Controllers
         // Post-Login
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(string email, string password)
+        public ActionResult Login(LoginVM model)
         {
             if (ModelState.IsValid)
             {
 
 
-                var data = _context.Accounts.Where(s => s.Email.Equals(email)).ToList();
+                var data = _context.Accounts.Where(s => s.Email.Equals(model.Email)).ToList();
                 var dataRoleId = data.FirstOrDefault().RoleId;
-                bool checkPass = BCrypt.Net.BCrypt.Verify(password, data.FirstOrDefault().Password);
+                bool checkPass = BCrypt.Net.BCrypt.Verify(model.Password, data.FirstOrDefault().Password);
                 if (checkPass)
                 {
                     if (dataRoleId == 3)
@@ -120,7 +121,9 @@ namespace StarSecurityService.Controllers
                         var User = new UserSession();
                         User.UserFirstName = data.FirstOrDefault().FirstName.ToString();
                         User.UserLastName = data.FirstOrDefault().LastName.ToString();
-                        User.UserId = data.FirstOrDefault().AccountId;
+                        User.UserRoleId = (int)data.FirstOrDefault().RoleId;
+                        User.UserEmail = data.FirstOrDefault().Email.ToString();
+                        User.UserCardId = data.FirstOrDefault().CardId.ToString();
 
                         HttpContext.Session.SetObjectAsJson("UserDetails", User);
                         return RedirectToAction("Index", "Home", new { area = "Admin" });
