@@ -18,7 +18,8 @@
      <!-- End form  -->
     <div>
         <!-- Hiển thị partial view từ action MyPartialView -->
-        @await Html.PartialAsync("_OrderForm", ViewBag.OrderForm, new ViewDataDictionary(ViewData) {});
+    <partial name="_OrderForm" model="ViewBag.OrderForm"></partial>
+        @*@await Html.PartialAsync("_OrderForm", ViewBag.OrderForm, new ViewDataDictionary(ViewData) {});*@
     </div>
     <div class="serviceDetails container" style="min-height: 900px;">
         <div class="leftContent">

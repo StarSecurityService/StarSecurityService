@@ -9,15 +9,16 @@
         <p><strong>...</strong></p>
     </div>
 
-    <form id="formOrder--form" asp-action="OrderForm" asp-controller="Order" enctype="multipart/form-data">
-        <input asp-for="firstName" class="firstname" type="text" placeholder="First Name" value="@ViewBag.UserLoggedInFirstName" disabled>
-        <input asp-for="lastName" class="lastname" type="text" placeholder="Last Name" value="@ViewBag.UserLoggedInFirstName" disabled>
-        <input asp-for="address" class="address" type="text" placeholder="Address" value="@ViewBag.UserLoggedInAddress" disabled>
-        <input asp-for="phone" class="phone" type="text" placeholder="Phone Number" value="@ViewBag.UserLoggedInPhone" disabled>
-        <input asp-for="email" class="email" type="email" placeholder="Email" value="@ViewBag.UserLoggedInEmail" disabled>
+    <form id="formOrder--form" asp-action="Create" asp-controller="Order" enctype="multipart/form-data">
+        <input  class="firstname" type="text" placeholder="First Name" value="@ViewBag.UserLoggedInFirstName" disabled>
+        <input  class="lastname" type="text" placeholder="Last Name" value="@ViewBag.UserLoggedInLastName" disabled>
+        <input  class="address" type="text" placeholder="Address" value="@ViewBag.UserLoggedInAddress" disabled>
+        <input class="phone" type="text" placeholder="Phone Number" value="@ViewBag.UserLoggedInPhone" disabled>
+        <input class="email" type="email" placeholder="Email" value="@ViewBag.UserLoggedInEmail" disabled>
+        <input asp-for="accountId" type="hidden"/>
         @Html.DropDownListFor(m => m.serviceId, ViewBag.Service as SelectList, "Select Service")
         <input asp-for="amount" class="amount" type="number" placeholder="Amount">
-        <input asp-for="startDate" class="" type="date" />
+        <input asp-for="startDate" class="" type="date"/>
         <input asp-for="duration" class="" type="number" />
         <button type="submit">Submit</button>
     </form>

@@ -68,7 +68,22 @@ namespace StarSecurityService.Controllers
             var services = new ServiceComponents().ListAll();
             SelectList serviceList = new SelectList(services, "ServiceId", "ServiceName");
             ViewBag.Service = serviceList;
-
+            var userLoggedIn = HttpContext.Session.GetObjectFromJson<UserSession>("UserDetails");
+            if(userLoggedIn != null)
+            {
+                var userLoggedInData = _context.Accounts.Where(a => a.AccountId == userLoggedIn.UserId).FirstOrDefault();
+                
+                    ViewBag.UserLoggedInFirstName = userLoggedInData.FirstName;
+                    ViewBag.UserLoggedInLastName = userLoggedInData.LastName;
+                    ViewBag.UserLoggedInEmail = userLoggedInData.Email;
+                    ViewBag.UserLoggedInAddress = userLoggedInData.Address;
+                    ViewBag.UserLoggedInPhone = userLoggedInData.Phone;
+            }
+             else
+            {
+                return RedirectToAction("Login", "Accounts");
+            }
+            
             return View(service);
         }
 

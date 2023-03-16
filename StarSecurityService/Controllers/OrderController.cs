@@ -7,7 +7,6 @@ using StarSecurityService.Data;
 using StarSecurityService.Extentions;
 using StarSecurityService.Models;
 using StarSecurityService.Models.ViewModels;
-using System;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 
@@ -36,34 +35,15 @@ namespace StarSecurityService.Controllers
         }*/
 
 
-
-/*        [HttpGet]
-        public ActionResult OrderForm()
-        {
-            var services = new ServiceComponents().ListAll();
-            SelectList serviceList = new SelectList(services, "ServiceId", "ServiceName");
-            ViewBag.Service = serviceList;
-            return PartialView("_MyPartialView", model);
-        }
         [HttpPost]
-        public ActionResult OrderForm(OrderFormVM model)
+        public ActionResult Create(OrderFormVM model)
         {
             if (ModelState.IsValid)
             {
-                var services = new ServiceComponents().ListAll();
-                SelectList serviceList = new SelectList(services, "ServiceId", "ServiceName");
-                ViewBag.Service = serviceList;
-                var userLoggedInId = HttpContext.Session.GetObjectFromJson<UserSession>("UserDetails").UserId;
-                var userLoggedIn = _context.Accounts.Where(a => a.AccountId == userLoggedInId).FirstOrDefault();
-                var service = _context.Services.Where(s => s.ServiceId == model.serviceId).First();
-                ViewBag.UserLoggedInFirstName = userLoggedIn.FirstName;
-                ViewBag.UserLoggedInLastName = userLoggedIn.LastName;
-                ViewBag.UserLoggedInEmail = userLoggedIn.Email;
-                ViewBag.UserLoggedInAddress = userLoggedIn.Address;
-                ViewBag.UserLoggedInPhone = userLoggedIn.Phone;
 
+                var service = _context.Services.Where(s => s.ServiceId == model.serviceId).First();
                 var order = new Order();
-                order.AccountId = userLoggedInId;
+                order.AccountId = HttpContext.Session.GetObjectFromJson<UserSession>("UserDetails").UserId;
                 order.ServiceId = model.serviceId;
                 order.Time = model.startDate;
                 order.Duration = model.duration;
@@ -71,8 +51,19 @@ namespace StarSecurityService.Controllers
                 order.Total = service.Price * model.amount;
                 _context.Orders.Add(order);
                 _context.SaveChanges();
+                _notyfService.Success("Order Added Successfully!");
+                return RedirectToAction("Index", "Home");
             }
-            return PartialView("_MyPartialView", model);
-        }*/
+            else
+            {
+                string messages = string.Join("; ", ModelState.Values
+                                        .SelectMany(x => x.Errors)
+                                        .Select(x => x.ErrorMessage));
+                Console.WriteLine(messages);
+                return View();
+
+            }
+            
+        }
     }
 }
