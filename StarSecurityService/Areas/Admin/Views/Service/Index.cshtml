@@ -61,9 +61,6 @@
                     @Html.DisplayNameFor(model => model.First().Price)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.First().Description)
-                </th>
-                <th>
                     Actions
                 </th>
             </tr>
@@ -83,9 +80,6 @@
                     </td>
                     <td>
                         @Html.DisplayFor(model => item.Price)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(model => item.Description)
                     </td>
                     <td>
                         <a class="btn btn-primary btn-tone m-r-5" asp-action="Edit" asp-route-id="@item.ServiceId">Edit</a>

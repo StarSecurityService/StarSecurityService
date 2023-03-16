@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using StarSecurityService.Data;
 using Microsoft.CodeAnalysis;
 using static Microsoft.AspNetCore.Razor.Language.TagHelperMetadata;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using StarSecurityService.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -46,6 +48,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.UseSession();

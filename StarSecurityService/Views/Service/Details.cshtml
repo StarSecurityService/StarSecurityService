@@ -1,0 +1,77 @@
+﻿@*@model StarSecurityService.Models.Service;*@
+@using Microsoft.AspNetCore.Http
+@using StarSecurityService.Extentions;
+@using StarSecurityService.Models.ViewModels;
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    //Get object from session
+    var mySessionObject = HttpContextAccessor.HttpContext.Session.GetObjectFromJson<UserSession>("UserDetails");
+    var services = (List<Service>)ViewBag.Services;
+    var servicesReverse =  (List<Service>)ViewBag.ServicesReverse;
+    //OrderFormVM orderFormVM = new OrderFormVM();
+}
+
+    <!-- Header End -->
+
+
+     <!-- End form  -->
+    <div>
+        <!-- Hiển thị partial view từ action MyPartialView -->
+        @await Html.PartialAsync("_OrderForm", ViewBag.OrderForm, new ViewDataDictionary(ViewData) {});
+    </div>
+    <div class="serviceDetails container" style="min-height: 900px;">
+        <div class="leftContent">
+            <!-- Breadcrumb Start  -->
+            <div class="breadcrumb container">
+                <p><a asp-action="Index" asp-controller="Home">Security</a><a asp-action="Index" asp-controller="Service">» Security Service</a>  » @Model.ServiceName</p>
+                <h2> @Model.ServiceName</h2>
+                <div class="information">
+                    <p class="flexItem">02/03/2023</p>
+                    <p class="flexItem">Security Service</p>
+                    <div class="view flexItem">
+                        <i class="fa-solid fa-eye icon"></i>
+                        <p>42 view</p>
+                    </div>
+                    <div class="user flexItem">
+                        <i class="fa-solid fa-user icon"></i>
+                        <p>Star Security Service</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Breadcrumb End  -->
+            @Html.Raw(Model.Description)
+        </div>
+        <div class="rightContent">
+            <div class="rightContent--first">
+                <div class="rightContent--title">
+                    <h3>Latest News</h3>
+                </div>
+                @foreach(var service in services)
+                {
+                    <div class="rightContent--item">
+                        <img width="70px;" src="/ClientAssets/image/@service.Image">
+                        <p>@service.ServiceName</p>
+                    </div>
+                }
+                
+            </div>
+            <div class="rightContent--second">
+                <div class="rightContent--title">
+                    <h3>Categories</h3>
+                </div>
+                @foreach (var service in servicesReverse)
+                {
+                        <div class="rightContent--item">
+                            <img width="70px;" src="/ClientAssets/image/@service.Image">
+                            <p>@service.ServiceName</p>
+                        </div>
+                }
+            </div>
+        </div>
+    </div>
+    
+    <div class="groupBtn container">
+        <button id="createBtn">Create Order</button>
+        <button class="contact">Contact Us</button>
+    </div>

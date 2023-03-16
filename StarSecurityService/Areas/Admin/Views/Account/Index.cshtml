@@ -52,19 +52,13 @@
                     @Html.DisplayNameFor(model => model.First().AccountId)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.First().FirstName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.First().LastName)
+                    Name
                 </th>
                 <th>
                     Role
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.First().Phone)
-                </th>
-                <th>
-                    Identity Card
                 </th>
                 <th>
                     Email
@@ -83,19 +77,13 @@
                         <img src="~/ClientAssets/image/@item.Avatar" width="100px" height="80px"/>
                         </td>
                         <td>
-                        @Html.DisplayFor(model => item.FirstName)
-                        </td>
-                        <td>
-                        @Html.DisplayFor(model => item.LastName)
+                        @Html.DisplayFor(model => item.FirstName)  @Html.DisplayFor(model => item.LastName)
                         </td>
                         <td>
                         @Html.DisplayFor(model => item.Role.RoleName)
                         </td>
-                    <td>
-                        @Html.DisplayFor(model => item.Phone)
-                    </td>
                         <td>
-                        @Html.DisplayFor(model => item.CardId)
+                            @Html.DisplayFor(model => item.Phone)
                         </td>
                         <td>
                             @Html.DisplayFor(model => item.Email)
@@ -103,8 +91,8 @@
                         
                         <td>
                             <a class="btn btn-primary btn-tone m-r-5" asp-action="Edit" asp-route-id="@item.AccountId">Edit</a>
-                        <a class="btn btn-secondary btn-tone m-r-5" asp-action="Details" asp-route-id="@item.AccountId">Details</a>
-                        <a class="btn btn-success btn-tone m-r-5" asp-action="Delete" asp-route-id="@item.AccountId">Delete</a>
+                            <a class="btn btn-secondary btn-tone m-r-5" asp-action="Details" asp-route-id="@item.AccountId">Details</a>
+                            <a class="btn btn-success btn-tone m-r-5" asp-action="Delete" asp-route-id="@item.AccountId">Delete</a>
                         </td>
                     </tr>
             }

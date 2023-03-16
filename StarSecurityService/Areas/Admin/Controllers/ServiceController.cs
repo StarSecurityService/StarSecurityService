@@ -79,7 +79,6 @@ namespace StarSecurityService.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-
             return View(service);
         }
 

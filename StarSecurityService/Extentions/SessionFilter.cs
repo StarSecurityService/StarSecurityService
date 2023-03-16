@@ -16,12 +16,11 @@ namespace StarSecurityService.Extentions
 		public void OnActionExecuting(ActionExecutingContext context)
 		{
 			var result = context.HttpContext.Session.GetObjectFromJson<UserSession>("UserDetails");
-
-			if (result == null)
-			{
-				context.Result = new RedirectResult("~/Accounts/Login");
-			}
-			else if (result != null && result.UserRoleId == 3)
+            if (result == null)
+            {
+                context.Result = new RedirectResult("~/Account/Login");
+            }
+            if (result != null && result.UserRoleId == 3)
 			{
 				context.Result = new RedirectResult("~/");
 			}

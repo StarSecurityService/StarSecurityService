@@ -52,20 +52,12 @@
                 <th>
                     @Html.DisplayNameFor(model => model.First().GuardId)
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.First().FirstName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.First().LastName)
-                </th>
+                <th>Name</th>
                 <th>
                     Service
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.First().Phone)
-                </th>
-                <th>
-                    Identity Card
                 </th>
                 <th>
                     Status
@@ -83,19 +75,13 @@
                         @Html.DisplayFor(model => item.GuardId)
                     </td>
                     <td>
-                        @Html.DisplayFor(model => item.FirstName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(model => item.LastName)
+                        @Html.DisplayFor(model => item.FirstName) @Html.DisplayFor(model => item.LastName)
                     </td>
                     <td>
                         @Html.DisplayFor(model => item.Service.ServiceName)
                     </td>
                     <td>
                         @Html.DisplayFor(model => item.Phone)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(model => item.CardId)
                     </td>
                     <td>
                         @Html.DisplayFor(model => item.Status)

@@ -4,6 +4,12 @@ using StarSecurityService.Extentions;
 using StarSecurityService.Data;
 using StarSecurityService.Models;
 using StarSecurityService.Models.ViewModels;
+using Microsoft.AspNetCore.Authentication;
+using System.Security.Claims;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
+using AspNetCoreHero.ToastNotification.Abstractions;
+using AspNetCoreHero.ToastNotification.Notyf;
 
 namespace StarSecurityService.Controllers
 {
@@ -11,9 +17,13 @@ namespace StarSecurityService.Controllers
     {
 
         private readonly StarSecurityServiceDbContext _context;
-        public AccountsController (StarSecurityServiceDbContext context)
+        private readonly IWebHostEnvironment _hostEnvironment;
+        private INotyfService _notyfService;
+        public AccountsController (StarSecurityServiceDbContext context, IWebHostEnvironment hostEnvironment, INotyfService notifyService)
         {
             _context = context;
+            _hostEnvironment=hostEnvironment;
+            _notyfService = notifyService;
         }
 
         // Get-Register
@@ -106,6 +116,7 @@ namespace StarSecurityService.Controllers
                     {
                         //add session
                         var User = new UserSession();
+                        User.UserId = data.FirstOrDefault().AccountId;
                         User.UserFirstName = data.FirstOrDefault().FirstName.ToString();
                         User.UserLastName = data.FirstOrDefault().LastName.ToString();
                         User.UserRoleId = (int)data.FirstOrDefault().RoleId;
@@ -119,6 +130,7 @@ namespace StarSecurityService.Controllers
                     {
                         //add session
                         var User = new UserSession();
+                        User.UserId = data.FirstOrDefault().AccountId;
                         User.UserFirstName = data.FirstOrDefault().FirstName.ToString();
                         User.UserLastName = data.FirstOrDefault().LastName.ToString();
                         User.UserRoleId = (int)data.FirstOrDefault().RoleId;
@@ -144,5 +156,6 @@ namespace StarSecurityService.Controllers
             HttpContext.Session.Clear();
             return RedirectToAction("Index", "Home");
         }
+
     }
 }

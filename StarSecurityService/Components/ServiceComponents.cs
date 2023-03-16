@@ -1,5 +1,6 @@
 ﻿using StarSecurityService.Data;
 using StarSecurityService.Models;
+using System.Linq;
 
 namespace StarSecurityService.Components
 {
@@ -13,5 +14,6 @@ namespace StarSecurityService.Components
         }
 
         public List<Service> ListAll() => db.Services.ToList();
+        public List<Service> ListAllReverse() => db.Services.OrderByDescending(s => s.ServiceId).ToList();
     }
 }

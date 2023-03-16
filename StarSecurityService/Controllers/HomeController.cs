@@ -2,6 +2,7 @@
 using StarSecurityService.Components;
 using StarSecurityService.Models;
 using System.Diagnostics;
+using StarSecurityService.Extentions;
 
 namespace StarSecurityService.Controllers
 {
@@ -14,6 +15,7 @@ namespace StarSecurityService.Controllers
             _logger = logger;
         }
 
+        [SessionAdminFilter]
         public IActionResult Index()
         {
             ViewBag.Services = new ServiceComponents().ListAll().GetRange(0, 6);

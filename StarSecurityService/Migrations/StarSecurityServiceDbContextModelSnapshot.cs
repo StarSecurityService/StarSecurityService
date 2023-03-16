@@ -462,8 +462,8 @@ namespace StarSecurityService.Migrations
                         .HasColumnName("CreatedAt");
 
                     b.Property<string>("Description")
-                        .HasMaxLength(1000)
-                        .HasColumnType("nvarchar(1000)")
+                        .HasMaxLength(10000)
+                        .HasColumnType("nvarchar(max)")
                         .HasColumnName("description");
 
                     b.Property<string>("Image")
@@ -478,6 +478,11 @@ namespace StarSecurityService.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)")
                         .HasColumnName("serviceName");
+
+                    b.Property<string>("Subtitle")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)")
+                        .HasColumnName("Subtitle");
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2")

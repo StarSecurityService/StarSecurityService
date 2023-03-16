@@ -3,9 +3,9 @@ using StarSecurityService.Extentions;
 
 namespace StarSecurityService.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class HomeController : Controller
     {
-        [Area("Admin")]
 
         [SessionFilter]
         public IActionResult Index()

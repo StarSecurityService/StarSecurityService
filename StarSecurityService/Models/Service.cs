@@ -18,8 +18,12 @@ public partial class Service : BaseEntity
     [StringLength(255)]
     public string? ServiceName { get; set; }
 
-    [Column("description")]
+    [Column("Subtitle")]
     [StringLength(1000)]
+    public string? Subtitle { get; set; }
+
+    [Column("description")]
+    [StringLength(10000)]
     public string? Description { get; set; }
 
     [Column("price")]

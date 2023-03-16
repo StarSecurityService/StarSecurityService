@@ -248,10 +248,11 @@ footer {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.5);
   opacity: 0;
   transition: 0.25s;
   visibility: hidden;
+  z-index: 999;
 }
 
 .overlay.active {
@@ -264,4 +265,53 @@ footer {
   position: absolute;
   justify-content: flex-end;
   font-size: 30px;
+}
+
+#formDisplay {
+  position: fixed;
+  top: 250px;
+  left: 460px;
+  right: 460px;
+  bottom: 250px;
+  visibility: hidden;
+  transition: ease-in-out 0.25s;
+  opacity: 0;
+  background: white;
+  z-index: 9999;
+  text-align: center;
+  line-height: 20px;
+}
+
+#formDisplay.display {
+  visibility: visible;
+  opacity: 1;
+}
+
+.formDisplay--description {
+  margin-bottom: 20px;
+}
+
+#formDisplay--form {
+  display: flex;
+  flex-direction: column;
+  margin: 12px 50px;
+}
+
+#formDisplay--form input {
+  margin-bottom: 8px;
+  padding: 8px;
+  border: none;
+  transition: 0.25s;
+}
+
+#sendInfoBtn {
+  border: none;
+  padding: 8px 0;
+  margin: 12px 0;
+  background-color: #031f30;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  cursor: pointer;
 }

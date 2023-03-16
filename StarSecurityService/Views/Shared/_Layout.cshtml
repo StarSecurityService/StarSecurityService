@@ -16,11 +16,15 @@
     <title>Star Security Service Company</title>
     <link rel="shortcut icon" type="image/icon" href="~/ClientAssets/image/logo-1.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="~/ClientAssets/owl-carousel/owl.carousel.min.css">
     <link rel="stylesheet" href="~/ClientAssets/style/home.css">
     <link rel="stylesheet" href="~/ClientAssets/style/foot-head.css">
+    <link rel="stylesheet" href="~/ClientAssets/style/service.css">
+    <link rel="stylesheet" href="~/ClientAssets/style/service-details.css" />
 </head>
 
 <body>
+    <div class="overlay1"></div>
     <div class="overlay"></div>
     <!-- Notification  -->
     <div class="notice">
@@ -32,6 +36,24 @@
         <div class="noticeItem fb-icon"><i class="icon fa-brands fa-facebook-f"></i></div>
     </div>
     <!-- End Notification  -->
+    <!-- Form Display  -->
+    <div id="formDisplay">
+        <div class="formDisplay--title">
+            <h3>Contact us</h3>
+        </div>
+        <div class="formDisplay--description">
+            <strong>
+                Please enter correct information, we'll contact you in the earliest
+                time
+            </strong>
+        </div>
+        <form id="formDisplay--form">
+            <input id="name" type="text" placeholder="Enter your full name">
+            <input id="phone" type="text" placeholder="Enter your phone number">
+            <button type="submit" id="sendInfoBtn">Send information</button>
+        </form>
+    </div>
+    <!-- End form  -->
     <!-- Header Start  -->
     <header>
         <div class="navBar">
@@ -39,20 +61,38 @@
                 <a id="barsBtn"><i class="fa-solid fa-bars"></i></a>
             </div>
             <div class="logo">
-                <a href="#"><img src="~/ClientAssets/image/logo-1.png" width="48px" alt="logo"></a>
+                <a asp-action="Index" asp-controller="Home"><img src="~/ClientAssets/image/logo-1.png" width="48px" alt="logo"></a>
             </div>
             <div class="navBar-details">
                 <div class="navBar-details--closeButton">
                     <a id="closeBtn"><i class="fa-solid fa-xmark"></i></a>
                 </div>
-                <div class="active navBar-item navBar-home"><a href="#">HOME</a></div>
+                <div class="active navBar-item navBar-home"><a asp-action="Index" asp-controller="Home">HOME</a></div>
                 <div class="navBar-item navBar-intro"><a href="#">ABOUT US</a></div>
-                <div class="navBar-item navBar-training"><a href="#">TRAINING</a></div>
+                <div class="navBar-item navBar-training"><a asp-action="Index" asp-controller="Service">SERVICE</a></div>
                 <div class="navBar-item navBar-recruitment"><a href="#">RECRUITMENT</a></div>
                 <div class="navBar-item navBar-news"><a href="#">NEWS</a></div>
                 <div class="navBar-item navBar-contact"><a href="#">CONTACT</a></div>
-                <div class="navBar-item navBar-phone">HOTLINE +84 923 128 888</div>
+                <div id="contact" class="navBar-item navBar-phone">HOTLINE +84 923 128 888</div>
                 <div class="navBar-item navBar-searchIcon"><i class="fa-solid fa-magnifying-glass"></i></div>
+               
+                        @if (mySessionObject == null)
+                        {
+                    <div class="navBar-item navBar-phone"><a asp-action="Login" asp-controller="Accounts" asp-area="">LOG IN</a></div>
+                            <div class="navBar-item navBar-phone"><a asp-action="Register" asp-controller="Accounts" asp-area="">SIGN UP</a></div>
+                           
+                               
+                        }
+                        else
+                        {
+                            <div class="navBar-item">
+                                <p>Hi, @mySessionObject.UserFirstName.ToString() @mySessionObject.UserLastName.ToString()</p>
+                            </div>
+                            <div class="navBar-item">
+                                <a asp-action="Logout" asp-controller="Accounts" asp-area="">Logout</a>
+                            </div>
+                           
+                        }
             </div>
         </div>
     </header>
@@ -143,6 +183,6 @@
   </footer>
   <!-- Footer End  -->
     <script src="~/ClientAssets/js/main.js"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    @*@await RenderSectionAsync("Scripts", required: false)*@
 </body>
 </html>

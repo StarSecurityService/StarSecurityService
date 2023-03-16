@@ -1,0 +1,112 @@
+.serviceDetails {
+  display: flex;
+  margin-top: 40px;
+}
+
+.view {
+  display: flex;
+  align-items: center;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+}
+
+.information {
+  display: flex;
+  font-size: 14px;
+}
+
+.flexItem {
+  margin-right: 20px;
+}
+
+.leftContent {
+  width: 75%;
+}
+
+.rightContent {
+  width: 25%;
+  height: 360px;
+  margin-left: 40px;
+  margin-top: 80px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05);
+}
+
+.rightContent--item {
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+  border-bottom: 1px solid gray;
+  margin: 0 8px;
+}
+
+.rightContent--title {
+  border-bottom: 1px solid black;
+  background: #031f30;
+  color: white;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding-left: 8px;
+}
+
+.rightContent--item img {
+  margin-right: 12px;
+}
+
+#formOrder {
+  position: fixed;
+  top: 250px;
+  left: 460px;
+  right: 460px;
+  bottom: 250px;
+  visibility: hidden;
+  transition: ease-in-out 0.25s;
+  opacity: 0;
+  background: white;
+  z-index: 9999;
+  text-align: center;
+  line-height: 20px;
+}
+
+#formOrder.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.overlay1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: 0.25s;
+  visibility: hidden;
+  z-index: 999;
+}
+
+.overlay1.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.rightContent--first {
+  margin-bottom: 80px;
+}
+
+.rightContent--second {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05);
+}
+
+.rightContent--item--second {
+  margin: 0 12px;
+  border-bottom: 1px solid grey;
+}
+
+.rightContent--item--second p {
+  line-height: 8px;
+}
